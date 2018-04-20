@@ -127,5 +127,29 @@ namespace DaleranGames
                 return (float)random.NextDouble();
             }
         }
+
+        public static char Char()
+        {
+            lock (syncLock)
+            {
+                return (char)random.Next(0x0000, 0xFFFF);
+            }
+        }
+
+        public static char CharLetter()
+        {
+            lock (syncLock)
+            {
+                return (char)('a' + random.Next(0,26));
+            }
+        }
+
+        public static char Char(int min, int max)
+        {
+            lock (syncLock)
+            {
+                return (char)random.Next(min, max);
+            }
+        }
     }
 }
