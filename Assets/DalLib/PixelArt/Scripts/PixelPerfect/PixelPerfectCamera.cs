@@ -16,6 +16,9 @@ namespace DaleranGames.PixelArt
         public float UnitsInPixel { get { return unitsInPixels; } }
 
         [SerializeField]
+        bool scaleOnStart = true;
+
+        [SerializeField]
         [Range(1,20)]
         int scale = 1;
         public int Scale
@@ -35,9 +38,15 @@ namespace DaleranGames.PixelArt
 
         protected Camera cam;
         // Use this for initialization
+        private void Awake()
+        {
+            cam = gameObject.GetRequiredComponent<Camera>();
+        }
+
         void Start()
         {
-            ScaleCamera();
+            if (scaleOnStart)
+                ScaleCamera();
         }
 
         private void OnValidate()
@@ -47,18 +56,20 @@ namespace DaleranGames.PixelArt
 
         protected virtual float CalculateOrthographicSize(float scale)
         {
-            return Screen.height / (scale * PixelsPerUnit) * 0.5f;
+            return (Screen.height / (scale * PixelsPerUnit)) * 0.5f;
         }
 
         [ContextMenu("Scale Camera")]
         public void ScaleCamera()
         {
+            if (cam == null)
+                cam = gameObject.GetRequiredComponent<Camera>();
+
             ScaleCamera(Scale);
         }
 
         public void ScaleCamera(int scale)
         {
-            cam = gameObject.GetRequiredComponent<Camera>();
             cam.orthographicSize = CalculateOrthographicSize(scale);
         }
 

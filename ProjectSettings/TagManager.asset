@@ -13,10 +13,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Characters
+  - BlockMovement
+  - PassMovement
+  - Projectiles
   - 
   - 
   - 
@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 8515659
+    locked: 0
   - name: Ship
     uniqueID: 1194940651
     locked: 0
