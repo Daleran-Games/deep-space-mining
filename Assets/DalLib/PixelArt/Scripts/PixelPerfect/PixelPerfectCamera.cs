@@ -6,6 +6,8 @@ using System;
 namespace DaleranGames.PixelArt
 {
     [AddComponentMenu("Rendering/Pixel Perfect Camera")]
+    [RequireComponent(typeof(Camera))]
+    [ExecuteInEditMode]
     public class PixelPerfectCamera : MonoBehaviour
     {
         [SerializeField]
@@ -41,6 +43,7 @@ namespace DaleranGames.PixelArt
         private void Awake()
         {
             cam = gameObject.GetRequiredComponent<Camera>();
+            unitsInPixels = 1 / pixelsPerUnit;
         }
 
         void Start()
@@ -52,6 +55,7 @@ namespace DaleranGames.PixelArt
         private void OnValidate()
         {
             unitsInPixels = 1 / pixelsPerUnit;
+            ScaleCamera();
         }
 
         protected virtual float CalculateOrthographicSize(float scale)
