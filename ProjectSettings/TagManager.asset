@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Cursor
   layers:
   - Default
   - TransparentFX
@@ -43,4 +44,7 @@ TagManager:
     locked: 0
   - name: WorldUI
     uniqueID: 3114032867
+    locked: 0
+  - name: HUDUI
+    uniqueID: 1840041967
     locked: 0

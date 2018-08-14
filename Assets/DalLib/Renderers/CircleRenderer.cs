@@ -63,7 +63,9 @@ namespace DaleranGames.Renderers
                 lineRenderer = GetComponent<LineRenderer>();
 
             lineRenderer.positionCount = segments + 1;
-            lineRenderer.useWorldSpace = false;
+
+            if (lineRenderer.useWorldSpace != false)
+                lineRenderer.useWorldSpace = false;
 
             float x, y;       
             float angle = 0f;
