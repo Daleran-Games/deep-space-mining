@@ -15,6 +15,10 @@ namespace DaleranGames
             list = new List<T>();
         }
 
+        public PriorityList(int capactiy)
+        {
+            list = new List<T>(capactiy);
+        }
 
         public virtual T this[int index]
         {
